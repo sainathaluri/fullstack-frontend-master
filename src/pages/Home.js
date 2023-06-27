@@ -69,7 +69,7 @@ export default function Home() {
                 {
                   <Link
                   className="btn"
-                  to={`/purchase-order`}
+                  to={`/purchase-order/{employee.id}`}
                   
                 >
                   Purchase Order
