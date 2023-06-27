@@ -35,7 +35,7 @@ export default function Home() {
               <th scope="col">LastName</th>
               <th scope="col">EmailID</th>
               <th scope="col">Visa Status</th>
-              <th scope="col">Date Of Birth</th>
+              <th scope="col">Date Of Birth</th> 
               <th scope="col">College Graduation</th>
               <th scope="col">Visa StartDate</th>
               <th scope="col">Visa EndDate</th>
@@ -44,10 +44,12 @@ export default function Home() {
             </tr>
           </thead>
           <tbody>
-            {users.map((employee, index) => (
+            {users.map((employee, index) => {
+              console.log(employee)
+              return(
               <tr>
                 <th scope="row" key={index}>
-                  {index + 1}
+                  {index+1}
                 </th>
                 <td>{employee.firstName}</td>
                 <td>{employee.lastName}</td>
@@ -67,10 +69,12 @@ export default function Home() {
                 {
                   <Link
                   className="btn"
-                  to={`/employee-po/${employee.id}`}
+                  to={`/purchase-order`}
+                  
                 >
                   Purchase Order
                 </Link>
+                
                 /* <td>
                   <Link
                     className="btn btn-primary mx-2"
@@ -92,7 +96,7 @@ export default function Home() {
                   </button>
                 </td> */}
               </tr>
-            ))}
+)})}
           </tbody>
         </table>
       </div>

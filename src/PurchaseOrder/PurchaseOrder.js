@@ -15,7 +15,7 @@ export default function Home() {
 
  
   const loadUsers = async () => {
-    const result = await axios.get("http://localhost:8082/purchaseorder");
+    const result = await axios.get("http://localhost:8082employees/${employeeId}/orders");
     setUsers(result.data);
   };
 
@@ -29,7 +29,7 @@ export default function Home() {
               <th scope="col">S.No</th>
               <th scope="col">Date Of Joining</th>
               <th scope="col">Project End Date</th>
-              <th scope="col">End Client Name</th>
+              <th scope="col">Client Name</th>
               <th scope="col">Vendor PhoneNo</th>
               <th scope="col">Vendor Email</th>
               {/* <th scope="col">Action</th> */}

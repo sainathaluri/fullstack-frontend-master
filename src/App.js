@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AddUser from "./users/AddUser";
 import EditUser from "./users/EditUser";
 import ViewUser from "./users/ViewUser";
-import EmployeePO from "./PurchaseOrder/EmployeePO";
+import PurchaseOrder from "./PurchaseOrder/PurchaseOrder";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/adduser" element={<AddUser />} />
           <Route exact path="/edituser/:id" element={<EditUser />} />
-          <Route exact path="/Employee-po" element={<EmployeePO/>} />
+          <Route exact path="/purchase-order" element={<PurchaseOrder/>} />
         </Routes>
       </Router>
     </div>
