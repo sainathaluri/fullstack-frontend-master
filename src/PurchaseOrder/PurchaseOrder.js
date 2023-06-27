@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -8,11 +7,10 @@ import axios from "axios";
 export default function Home() {
   const [users, setUsers] = useState([]);
 
-  const { empId } = useParams();
+  // const { id } = useParams();
 
   useEffect(() => {
     loadUsers();
-    console.log(empId);
   }, []);
 
  
