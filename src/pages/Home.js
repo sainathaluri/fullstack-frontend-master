@@ -79,7 +79,9 @@ export default function Home() {
                 // >
                 //   Purchase Order
                 // </Link>
-                <button onClick={() => handler(employee.employeeID)}>Orders</button>
+                <button onClick={() => handler(employee.employeeID)}>
+                  Orders
+                </button>
                 
                 /* <td>
                   <Link
