@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 
 
 export default function Home() {
   const [users, setUsers] = useState([]);
-
+  let navigate = useNavigate();
   // const { id } = useParams();
 
   useEffect(() => {
     loadUsers();
   }, []);
+
+  const handler = async (employeeID) =>{
+    let data = await axios.get(`http://localhost:8082/employees/${employeeID}/orders`);
+    console.log(data);
+    navigate("/orders",{state:data.data});
+  }
 
  
   const loadUsers = async () => {
@@ -45,7 +51,6 @@ export default function Home() {
           </thead>
           <tbody>
             {users.map((employee, index) => {
-              console.log(employee)
               return(
               <tr>
                 <th scope="row" key={index}>
@@ -67,13 +72,14 @@ export default function Home() {
                 </tr>
             }
                 {
-                  <Link
-                  className="btn"
-                  to={`/purchase-order`}
+                //   <Link
+                //   className="btn"
+                //   to={`/purchase-order/${employee.employeeID}/orders`}
                   
-                >
-                  Purchase Order
-                </Link>
+                // >
+                //   Purchase Order
+                // </Link>
+                <button onClick={() => handler(employee.employeeID)}>Orders</button>
                 
                 /* <td>
                   <Link

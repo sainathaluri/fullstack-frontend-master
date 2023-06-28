@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
+import "./Orders.css";
 import axios from "axios";
-
-
 
 export default function Home() {
   const [users, setUsers] = useState([]);
-
+ let location = useLocation();
+ console.log(location);
   // const { id } = useParams();
+  const { empId } = useParams();
 
   useEffect(() => {
     loadUsers();
+    console.log(empId);
+    setUsers(location.state);
   }, []);
 
  
   const loadUsers = async () => {
-    const result = await axios.get("http://localhost:8082employees/${employeeId}/orders");
+    const result = await axios.get("http://localhost:8082/employees/${employeeId}/orders");
     setUsers(result.data);
   };
 
@@ -36,7 +39,7 @@ export default function Home() {
             </tr>
           </thead>
           <tbody>
-            {users.map((employeePO, index) => (
+            {users.length == 0 ? <p className="para">No Orders</p> : users.map((employeePO, index) => (
               <tr>
                 <th scope="row" key={index}>
                   {index + 1}
@@ -48,7 +51,7 @@ export default function Home() {
                 <td>{employeePO.vendorEmailId}</td>
                
                 {
-                !employeePO.length ===  0  && 
+                users.length ===  0  && 
                 <tr>
                     <td colSpan='8'> No record found</td>
                 </tr>

@@ -1,5 +1,5 @@
 import axios from "axios";
-import './AddUser.css';
+import './Employee.css';
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -30,8 +30,6 @@ export default function AddUser() {
       alert('Visa start date cannot be after visa expiry date');
       return;
     }
-
-    // Check if visa expiry date is before visa start date
     if (new Date(visaExpiryDate) < new Date(visaStartDate)) {
       alert('Visa expiry date cannot be before visa start date');
       return;
